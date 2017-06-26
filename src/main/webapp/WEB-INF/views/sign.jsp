@@ -237,13 +237,16 @@ return false;}
 </select>
 <select id='yr' name="yr">
 <option value="Please Choose">Please choose</option>
-<option value="1990">1990-1997</option>
-<option value="1980">1980-1989</option>
-<option value="1970">1970-1979</option>
-<option value="1960">1960-1969</option>
-<option value="1950">1950-1959</option>
-<option value="1940">1940-1949</option>
-<option value="1930">1930-1939</option>
+<option value="1990">1990</option>
+<option value="1991">1991</option>
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
 </select> 
 </div><br>
 <div class="form-group">
@@ -286,8 +289,8 @@ return false;}
 </div> <br>
 <input type="checkbox" checked required> I agree to the terms and conditions <br> <br>
 <div class="form-group">
-<button type="submit" class="btn btn-default"> Submit   </button> <br> <br>
-</div>
+<button type="submit" class="btn btn-default"> Submit   </button> 
+</div><br> <br>
 </div>
 </div>
 </form>

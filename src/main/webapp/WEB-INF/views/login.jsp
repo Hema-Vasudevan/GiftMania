@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,9 +36,9 @@ margin:auto;
 <a href="" name="prod" class="dropdown-toggle" data-toggle="dropdown">Products
 <b class="caret"> </b> </a>
 <ul class="dropdown-menu">
-<li> <a href="product?prod=men">  Men </a>  </li>
-<li> <a href="product?prod=women"> Women </a> </li>
-<li> <a href="product?prod=children"> Children </a> </li>
+<li> <a href="product?prod=Men">  Men </a>  </li>
+<li> <a href="product?prod=Women"> Women </a> </li>
+<li> <a href="product?prod=Children"> Children </a> </li>
 </ul>
 </li>
  <li> <a href="sign"> Sign up</a> </li>
@@ -59,14 +60,14 @@ margin:auto;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp &nbsp &nbsp; &nbsp &nbsp  &nbsp; &nbsp &nbsp &nbsp; &nbsp &nbsp &nbsp Admin Login </font> </h4>
 <div class="container col-xs-4 col-xs-offset-4">
 <div class="jumbotron">
-<form role="form" method="post" action="/GiftMania/sign">
+<form role="form" method="post" action="/GiftMania/loginh">
 <div class="form-group">
 <label for="user"> Username : </label>
-<input type="text" class="form-control" name="user" placeholder="Enter name" required>
+<input type="text" class="form-control" name="uname" placeholder="Enter name" required>
 </div> <br>
 <div class="form-group">
 <label for="password"> Password :  </label> 
-<input type="password" class="form-control" name="password" placeholder="Enter password"  required> 
+<input type="password" class="form-control" name="pwd" placeholder="Enter password"  required> 
 </div> <br> 
 <div class="form-group">
 <button type="submit" class="btn btn-default"> Submit   </button> <br> <br>

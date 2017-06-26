@@ -72,6 +72,7 @@ public class DataConfiguration {
 		
 	}
 	
+	@Autowired
 	@Bean(name="userBean")
 	public UserDao getUserDao()
 	{

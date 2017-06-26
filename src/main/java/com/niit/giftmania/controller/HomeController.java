@@ -1,12 +1,15 @@
 package com.niit.giftmania.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.giftmania.InserProd;
+import com.niit.giftmania.CrudProd;
+import com.niit.giftmania.CrudUser;
 import com.niit.giftmania.dao.ProductDaoImple;
 import com.niit.giftmania.model.Product;
+import com.niit.giftmania.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +35,12 @@ public class HomeController {
 		return "abt";
 	}
 	@RequestMapping("/sign")
-	public String gotoSign(HttpServletRequest request, ModelMap model)
+	public String gotoSign()
 	{
 		return "sign";
 	}
 	@RequestMapping("/admin")
-	public String gotoAdmin(HttpServletRequest request, ModelMap model)
+	public String gotoAdmin()
 	{
 		return "admin";
 	}
@@ -49,10 +52,12 @@ public class HomeController {
 		String pname=request.getParameter("pname");
 		String pdes=request.getParameter("pdesc");
 		String pcat=request.getParameter("pcat");
-		Product p=new Product(pid,pname,pdes,pcat);
-		InserProd ip=new InserProd();
+		String price=request.getParameter("price");
+		Integer pr=Integer.parseInt(price);
+		Product p=new Product(pid,pname,pdes,pcat,pr);
+		CrudProd ip=new CrudProd();
 		ip.addp(p);
-		return "process";
+		return "home";
 	}
 	@RequestMapping("/update")
 	public String gotoUpdate(HttpServletRequest request, ModelMap model)
@@ -62,10 +67,12 @@ public class HomeController {
 		String pname=request.getParameter("pname");
 		String pdes=request.getParameter("pdesc");
 		String pcat=request.getParameter("pcat");
-		Product p=new Product(pid,pname,pdes,pcat);
-		InserProd ip=new InserProd();
+		String price=request.getParameter("price");
+		Integer pr=Integer.parseInt(price);
+		Product p=new Product(pid,pname,pdes,pcat,pr);
+		CrudProd ip=new CrudProd();
 		ip.update(p);
-		return "update";
+		return "home";
 	}
 	@RequestMapping("/delete")
 	public String gotoDelete(HttpServletRequest request, ModelMap model)
@@ -73,32 +80,31 @@ public class HomeController {
 		String pd=request.getParameter("pid");
 		Integer pid=Integer.parseInt(pd.trim());
 		Product p1=new Product(pid);
-		InserProd ip1=new InserProd();
+		CrudProd ip1=new CrudProd();
 		ip1.remove(pid);
-		return "delete";
+		return "home";
 	}
 	@RequestMapping("/login")
 	public String gotoLogin()
 	{
 		return "login";
 	}
-	@RequestMapping("/product")
-	public String gotoProducts(HttpServletRequest request, ModelMap model)
-	{
-		String produ=request.getParameter("prod");
-		switch(produ)
-		{
-			case "Men": model.addAttribute("prodname","Men");
-					 break;
-			case "Women": model.addAttribute("prodname","Women");
-					 break;
-			case "Children": model.addAttribute("prodname", "Children");
-					 break;
-		}
-		ProductDaoImple produt=new ProductDaoImple();
-		List<Product> list2=produt.getProductbyCategory(produ);
-		model.addAttribute("list3",list2);
-		return "product";
-		}
 	
+	@RequestMapping("/loginh")
+	public String LoginValidation(HttpServletRequest request)
+	{
+	String uname=request.getParameter("uname");
+	String pwd=request.getParameter("pwd");
+	User s=new User(uname,pwd);
+	CrudUser cu=new CrudUser();
+	User s1=cu.check(uname);
+	if(s1.getRole().equals("user"))
+		return "welcome";
+	else if(s1.getRole().equals("admin"))
+		return "admin";
+	else
+		return "login";
+	}
 }
+
+

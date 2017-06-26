@@ -14,6 +14,8 @@ public class Product {
 	String pname;
 	String prod_desc;
 	String category;
+	int price;
+	
 	@Override
 	public  String toString()
 	{
@@ -22,13 +24,23 @@ public class Product {
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
-		public Product(Integer pid,String pname, String prod_desc, String category) {
+		public Product(Integer pid,String pname, String prod_desc, String category,Integer price) {
 		// TODO Auto-generated constructor stub
 			this.pid=pid;
 			this.pname=pname;
 			this.prod_desc=prod_desc;
 			this.category=category;
+			this.price=price;
 	}
+	public int getPrice() {
+			return price;
+		}
+		public void setPrice(int price) {
+			this.price = price;
+		}
+		public void setPid(int pid) {
+			this.pid = pid;
+		}
 	public Product(Integer pid)
 	{
 		this.pid=pid;

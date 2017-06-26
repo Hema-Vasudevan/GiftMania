@@ -33,9 +33,9 @@ height:400px;
 <a class="dropdown-toggle" data-toggle="dropdown">Category 
 <b class="caret"> </b> </a>
 <ul class="dropdown-menu">
-<li> <a href="ProductController.java"> Men </a> </li>
-<li> <a href="ProductController.java"> Women</a> </li>
-<li> <a href="ProductController.java"> Children </a> </li>
+<li> <a href="product?prod=Men">  Men </a>  </li>
+<li> <a href="product?prod=Women"> Women </a> </li>
+<li> <a href="product?prod=Children"> Children </a> </li>
 </ul>
 </li>
  <li> <a href="sign.jsp"> Sign up</a> </li>
@@ -64,6 +64,10 @@ height:400px;
 <div class="form-group">
 <label for="user"> Product Category : </label>
 <input type="text" class="form-control" name="pcat" id='pcat' required>
+</div> <br>
+<div class="form-group">
+<label for="user"> Product Price : </label>
+<input type="text" class="form-control" name="price" id='price' required>
 </div> <br>
 <div class="form-group">
 <button type="submit" class="btn btn-default"> Add Product  </button> 
@@ -102,6 +106,10 @@ height:400px;
 <div class="form-group">
 <label for="user"> Product Category : </label>
 <input type="text" class="form-control" name="pcat" id='pcat' required>
+</div> <br>
+<div class="form-group">
+<label for="user"> Product Price : </label>
+<input type="text" class="form-control" name="price" id='price' required>
 </div> <br>
 <div class="form-group">
 <button type="submit" class="btn btn-default"> Update Product  </button> 

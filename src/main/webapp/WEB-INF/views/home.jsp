@@ -20,7 +20,7 @@
   </style>
 <title>Home | Products</title>
 </head>
-<body>
+<body img src="<c:url value="/resources/img/5.jpg" />">
 <div class="jumbotron row-md-1 text-center">
 <h1> <a href="home">GiftMania</a> </h1>
 </div>

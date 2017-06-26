@@ -43,6 +43,12 @@ public class User {
 		this.role=role;
 	}
 	
+	public User(String uname, String pwd) {
+		// TODO Auto-generated constructor stub
+		this.uname=uname;
+		this.pwd=pwd;
+	}
+
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", fname=" + fname + ", lname=" + lname + ", country=" + country + ", nationality=" + nationality + ", gender=" + gender + ", city="

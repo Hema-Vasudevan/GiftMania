@@ -33,12 +33,9 @@ public class ProductDaoImple implements ProductDao {
 	{
 		Session session=sessionFactory.openSession();
 		Transaction tx=session.beginTransaction();
-		Product p=(Product)session.load(Product.class,new String(cat));
-		System.out.println(p);
-		listProduct=session.createQuery("Select FROM com.niit.giftmania.model.Product p where p.category=category").setString("category", cat).list();
+		listProduct=session.createQuery("FROM com.niit.giftmania.model.Product p where p.category=:category").setString("category", cat).list();
 		tx.commit();
 		session.close();
-		getProduct();
 		return (List<Product>) (listProduct.size()>0?listProduct:null);
 	}
 @Transactional
@@ -80,19 +77,4 @@ public class ProductDaoImple implements ProductDao {
 		System.out.println(p);
 		return p;
 	}
-	/*public List<Product> getProductbyCategory(String cat)
-	{
-		getProduct();
-		List<Product> list1=new ArrayList<Product>();
-		for(Product p:list)
-		{
-			if(p.getCategory().equals(cat))
-			{
-				list1.add(p);
-			}
-		
-		}
-	
-		return list1;
-	} */
 }

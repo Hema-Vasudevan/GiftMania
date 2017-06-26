@@ -6,9 +6,9 @@ import com.niit.giftmania.dao.ProductDao;
 import com.niit.giftmania.dao.UserDao;
 import com.niit.giftmania.model.User;
 
-public class InserUser {
+public class CrudUser {
 	
-	public InserUser() {
+	public CrudUser() {
 		// TODO Auto-generated constructor stub
 	}
 	@SuppressWarnings("resource")
@@ -21,9 +21,17 @@ public class InserUser {
 		 AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 	      ctx.scan("com.niit.giftmania.config");
 	      ctx.refresh();
-	      ProductDao pd=(ProductDao)ctx.getBean("productBean");
 	      UserDao us=(UserDao)ctx.getBean("userBean");
 	      System.out.println(s);
 	      us.addUser(s);
+	}
+	public User check(String uname)
+	{
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+	      ctx.scan("com.niit.giftmania.config");
+	      ctx.refresh();
+	      UserDao us=(UserDao)ctx.getBean("userBean");
+	      User s=us.getuserByName(uname);
+	      return s;
 	}
 }

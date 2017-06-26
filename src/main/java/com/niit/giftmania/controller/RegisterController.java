@@ -4,16 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.giftmania.InserUser;
+import com.niit.giftmania.CrudUser;
+import com.niit.giftmania.dao.UserDao;
 import com.niit.giftmania.model.User;
 
 @Controller
 public class RegisterController {
 
 	@RequestMapping("/welcome")
-	public String gotoWelcome(HttpServletRequest request, ModelMap model)
+	public String gotoWelcome(HttpServletRequest request)
 	{
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
@@ -27,9 +29,9 @@ public class RegisterController {
 		String uname=request.getParameter("usrname");
 		String pwd=request.getParameter("passwd");
 		User s=new User(fname,lname,cn,nat,gen,city,add,pin,eid,uname,pwd,"user");
-		InserUser is=new InserUser();
+		CrudUser is=new CrudUser();
 		is.add(s);
-		return "welcome";
+		return "home";
 	}
 
 }
